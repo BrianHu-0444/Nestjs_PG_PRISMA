@@ -7,7 +7,8 @@ import { PrismaService } from '../prisma/prisma.service';
 export class ArticlesService {
   constructor(private prisma:PrismaService){}
   create(createArticleDto: CreateArticleDto) {
-    // return this.prisma.article.create({data:createArticleDto})
+    const {body,title,description,published} = createArticleDto;
+    return this.prisma.article.create({data:{body,title,description,published}})
   }
 
   findAll() {
